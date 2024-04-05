@@ -31,14 +31,14 @@ function fetchKantoPokemon() {
 }
  ```
 
- Il faut faire un fetch de l'adresse https://pokeapi.co/api/v2/pokemon?limit=150 afin de récupérer les données de l'API et les manier dans notre code. Ici, le ```pokemon?limit=150``` sert à poser une limite sur la récupération des données des pokémons. On utilisera alors les données des 150 premiers pokémons. Il est possible de d'augmenter ou de réduire cette limite
+ Il faut faire un fetch de l'adresse https://pokeapi.co/api/v2/pokemon?limit=150 afin de récupérer les données de l'API et les manier dans notre code. Ici, le ```pokemon?limit=150``` sert à poser une limite sur la récupération des données des pokémons. On utilisera alors les données des 150 premiers pokémons. Il est possible d'augmenter ou de réduire cette limite
  (il est tout de même possible de faire une recherche d'un pokémon au dessus de cette limite).
 
 
 ## 2. Affichage de Plusieurs Pokémon Issus d'une Liste
 *Question : Comment récupérer et afficher une liste initiale de Pokémon avec l'API PokeAPI ?*
 
-Pour récupérer et afficher une liste initiale de pokémon avec l'**API PokeAPI**, j'ai initié une ```<div>``` dans mon fichier HTML. Celle-ci servira à afficher les pokémons dans dans un ```container``` composé de ```cards```. Dans mon code, il faut appuyer sur le bouton ```generate-pokemon``` pour faire afficher la liste des 150 pokémons.
+Pour récupérer et afficher une liste initiale de pokémon avec l'**API PokeAPI**, j'ai initié une ```<div>``` dans mon fichier HTML. Celle-ci servira à afficher les pokémons dans un ```container``` composé de ```cards```. Dans mon code, il faut appuyer sur le bouton ```generate-pokemon``` pour faire afficher la liste des 150 pokémons.
 
 **HTML**
 ``` html
@@ -110,7 +110,7 @@ La fonction ```fetchPokemonData``` permet de récupérer les données de chaque 
 
 La fonction ```renderPokemon``` permet de reprendre ces données afin de les afficher dans mon *container*.
 
-La fonction ```createTypes``` permet de stocker les données de type de pokémon pour les utiliser.
+La fonction ```createTypes``` permet de stocker les données des types des pokémons pour les utiliser.
 
 La fonction ```createPokeImage``` permet de récupérer les images de chaque pokémon afin de les afficher dans chaque *card* qui lui correspond.
 
@@ -118,7 +118,7 @@ La fonction ```createPokeImage``` permet de récupérer les images de chaque pok
 ## 3. Présentation de l'API PokeAPI
 *Question : Comment explorer l'API PokeAPI pour trouver les informations nécessaires ?*
 
-Pour trouver des informations dans l'**API PokeAPI**, j'ai initié une nouvelle ```<div>``` avec une barre de recherche qui permet chercher un pokémon (par son numéro ou son nom) et de l'afficher avec des informations. Ces informations sont plus complètes que celles affichées dans le *container*.
+Pour trouver des informations dans l'**API PokeAPI**, j'ai initié une nouvelle ```<div>``` avec une barre de recherche qui permet trouver un pokémon (par son numéro ou son nom) et de l'afficher avec des informations. Ces informations sont plus complètes que celles affichées dans le *container*.
 
 **HTML**
 ``` html
@@ -227,13 +227,13 @@ function renderPokemonStats(pokeData, pokeContainer) {
 ```
 Le ```getElementById``` permet d'aller chercher ```search-form``` dans le document HTML afin d'y mettre des données qui pourront être affichées.
 
-La fonction ```executeSearch``` permet d'effectuer une recherche de faire une recherche dans l'**API PokéAPI** afin de trouver un pokémon.
+La fonction ```executeSearch``` permet d'effectuer une recherche dans l'**API PokéAPI** afin de trouver un pokémon.
 
 La fonction ```RenderSinglePokemon``` permet de faire afficher le pokémon recherché et de donner toutes ses informations en détails.
 
 La fonction ```fetchPokemonStats``` permet de recupérer les données des statistiques par pokémon.
 
-La fonction ```fetchPokemonAbilities``` permet de récupérer les données des habilités par pokémon.
+La fonction ```fetchPokemonAbilities``` permet de récupérer les données des capacités par pokémon.
 
 La fonction ```renderPokemonStats``` permet de faire afficher les statistiques du pokémon recherché.
 
@@ -247,7 +247,7 @@ Pour la fonctionnalité de recherche pour trouver des Pokémon par leur numéro,
 
 Pour les erreurs, il faut utiliser un ```.catch``` dans un fetch pour afficher une erreur dans la console lors de la récupération de données dans l'API avec ```console.error(error);```.
 
-Ici, lorsque ma recherche de pokémon, j'ai rajouté une entrée de texte qui me marquera directement sur ma page lorsque la recherche de pokémon est mauvaise (dernière ligne).
+Ici, j'ai rajouté une entrée de texte qui me marquera directement sur ma page lorsque la recherche de pokémon est mauvaise (dernière ligne).
 
 ``` js
     .catch(error=>{
@@ -289,7 +289,7 @@ function fetchPokemonStats(pokemonId, pokeContainer) {
 }
 ```
 
-La promesse se traite et lorsque celle-ci l'est, on utilise ```.then``` pour lui faire exécuter action. Ici, lorsqu'on récupère les données des pokémons, on les stocke dans une fonction ```pokeData```.
+La promesse se traite et lorsque celle-ci est traitée, on utilise ```.then``` pour lui faire exécuter une action. Ici, lorsqu'on récupère les données des pokémons, on les stocke dans une fonction ```pokeData```.
 
 ## 8. Usage du Format JSON
 *Question : Comment travailler avec le format JSON pour extraire les données retournées par l'API ?*
